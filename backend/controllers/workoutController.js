@@ -27,7 +27,8 @@ const createWorkout = async (req, res) => {
     if (!title) {
         emptyFields.push('title')
     }
-    if (!load) {
+    // !load worked fine but idk how it doesnt accept value 0 so work around ig
+    if (load < 0 || load == null) {
         emptyFields.push('load')
     }
     if (!reps) {
